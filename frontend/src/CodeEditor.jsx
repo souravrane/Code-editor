@@ -10,13 +10,16 @@ function CodeEditor() {
 
     const onChange = (value) => {
         setCode(value);
-        console.log(code);
     };
 
     const onLangChange = (event) => {
         const lang = event.target.value;
         setLang(lang);
         setCode(snippets[lang]);
+    };
+
+    const submitCode = () => {
+        console.log(code);
     };
 
     return (
@@ -43,6 +46,13 @@ function CodeEditor() {
                 extensions={languageExtension[lang]}
                 onChange={onChange}
             />
+
+            <button
+                className="mt-2 border-2 bg-green-500 px-1 rounded-md"
+                onClick={submitCode}
+            >
+                Submit
+            </button>
         </div>
     );
 }
