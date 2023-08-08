@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import CodeMirror from "@uiw/react-codemirror";
 import { dracula } from "@uiw/codemirror-theme-dracula";
 import languageExtension from "./config/extension";
@@ -19,7 +20,9 @@ function CodeEditor() {
     };
 
     const submitCode = () => {
-        console.log(code);
+        console.log("submitting code");
+        const url = `http://localhost:8080/${lang}`;
+        axios.post(url, { code }).then((res) => console.log(res));
     };
 
     return (
